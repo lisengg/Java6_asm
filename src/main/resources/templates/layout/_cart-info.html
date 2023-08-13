@@ -1,0 +1,12 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<div class="panel panel-primary cart">
+		<div class="panel-body text-center">
+		<p>Giỏ hàng</p>
+			<a >{{cart.count}} Sản phẩm</a> <br>
+			<a >Tổng hóa đơn : {{cart.amount | number:3}}VNĐ</a> <br>
+			<div class="cart_button" style="border: 3px solid blue;border-radius: 20px">
+						<a th:href="@{/cart/view}">Xem giỏ hàng</a>
+			</div>
+		</div>
+	</div>
+</div>

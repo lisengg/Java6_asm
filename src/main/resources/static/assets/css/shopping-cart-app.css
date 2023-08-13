@@ -1,0 +1,168 @@
+.poly-item img{
+	height: 150px;
+	max-width: 95%;
+}
+
+.poly-item-detail img{
+	max-width: 80%;
+}
+.poly-item{
+
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 20px auto;
+  width: 250px;
+  height: 250px;
+  background: white;
+  border-radius: 75px;
+
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  transition: 1s box-shadow;
+}
+
+.poly-item:hover {
+  box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+}
+
+.poly-item:hover::before, .poly-item:hover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: #FDA8CF;
+  border-radius: 75px;
+  z-index: -1;
+  animation: 1s clockwise infinite;
+}
+
+.poly-item:hover:after {
+  background: #F3CE5E;
+  animation: 2s counterclockwise infinite;
+}
+
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;    
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;    
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;    
+  }
+}
+
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+  25% {
+    top: 0;
+    right: 5px;    
+  }
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+  50% {
+    top: 5px;
+    right: 0;    
+  }
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+  75% {
+    top: 0;
+    right: -5px;
+  }
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+  100% {
+    top: -5px;
+    right: 0;    
+  }
+}
+
+	a {
+      font-size:14px;
+      font-weight:700;
+      text-decoration: none;
+    }
+    .superNav {
+      font-size:13px;
+    }
+    .form-control {
+      outline:none !important;
+      box-shadow: none !important;
+    }
+    @media screen and (max-width:540px){
+      .centerOnMobile {
+        text-align:center
+      }
+    }
+    
+ /*    Cart  */
+ .cart{
+ margin-top: 10px;
+ border: 5px solid rgb(10, 96, 96); 
+ border-radius: 20px; 
+ padding: 10px;
+ 
+ }
+ 
+/*  Nav Menu */
+.nav_menu{
+	background-color: rgb(47, 159, 159); 
+	color: white;
+}
+.cart_button a{
+	text-decoration: none;
+	color: blue;
+}
+.cart_button:hover{
+	background-color: blue;
+	color: white;
+}
+
+.cart_button a:hover{
+	color: white; 
+}
