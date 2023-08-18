@@ -40,7 +40,6 @@ public class Account  implements Serializable{
 	@NotBlank(message = "Không để trống email")
 	@Email(message = "Email không đúng định dạng")
 	String email;
-	String photo;
 	@JsonIgnore
 	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
 	List<Authority> authorities;

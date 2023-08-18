@@ -35,7 +35,7 @@
           
           <th:block th:if="${#request.remoteUser}">
             <li class="nav-item">            
-               <a class="nav-link mx-2 text-uppercase" th:href="@{/admin/home/index}">Hóa đơn của bạn</a>
+               <a class="nav-link mx-2 text-uppercase" th:href="@{/order/list}">Hóa đơn của bạn</a>
             </li>
              <li class="nav-item"
              th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
@@ -43,6 +43,9 @@
             </li>
              <li class="nav-item">            
                <a class="nav-link mx-2 text-uppercase" th:href="@{/security/logoff}">Đăng xuất</a>
+            </li>
+            <li class="nav-item">            
+               <a class="nav-link mx-2" >Xin chào</a>
             </li>
             </th:block>
             

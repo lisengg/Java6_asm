@@ -19,8 +19,9 @@
 					</ul>
 				</div>
 				<div class="panel-footer text-right">
-					<button class="btn btn-success">
-						<i class="glyphicon glyphicon-shopping-cart"></i>
+					<button th:attr="ng-click=@{|cart.add(${id})|}" class="btn btn-success">
+					MUA HÀNG
+						<!-- <i class="glyphicon glyphicon-shopping-cart"></i> -->
 					</button>
 				</div>
 			</div>
@@ -32,9 +33,9 @@
 				<div class="panel-body">
 					<ul>
 						<li th:each="p:*{category.products}"><a
-							th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}">
-							
+							th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}">						
 							</a>
+							
 						</li>
 					</ul>
 				</div>

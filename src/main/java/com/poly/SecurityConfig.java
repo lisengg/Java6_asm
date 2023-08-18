@@ -15,6 +15,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.client.endpoint.DefaultAuthorizationCodeTokenResponseClient;
+import org.springframework.security.oauth2.client.endpoint.OAuth2AccessTokenResponseClient;
+import org.springframework.security.oauth2.client.endpoint.OAuth2AuthorizationCodeGrantRequest;
+//import org.springframework.security.oauth2.client.endpoint.OAuth2AccessTokenResponseClient;
+//import org.springframework.security.oauth2.client.endpoint.OAuth2AuthorizationCodeGrantRequest;
+//import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
+//import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
+//import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
+import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
+import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 
 import com.poly.bean.Account;
 import com.poly.service.AccountService;
@@ -61,9 +72,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.loginProcessingUrl("/security/login") // [/login]
 				.defaultSuccessUrl("/security/login/success", false)
 				.failureUrl("/security/login/error");
+			
+			//Oauth2Login
+				http.oauth2Login()
+				.loginPage("/oauth2/login/form")
+				.defaultSuccessUrl("/oauth2/login/success", true)
+				.failureUrl("/oauth2/login/error")
+				.authorizationEndpoint().baseUri("/oauth2/authorization")
+				.authorizationRequestRepository(getRepository())
+				.and().tokenEndpoint()
+				.accessTokenResponseClient(getToken());
 				
 			http.rememberMe()
 				.tokenValiditySeconds(86400);
+			
+
+			
 		// Điều khiển lỗi truy cập không đúng vai trò
 		http.exceptionHandling()
 			.accessDeniedPage("/security/unauthoritied"); // [/error]
@@ -71,6 +95,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.logout()
 			.logoutUrl("/security/logoff") // [/logout]
 			.logoutSuccessUrl("/security/logoff/success");	
+	}
+	
+	@Bean
+	public AuthorizationRequestRepository<OAuth2AuthorizationRequest> getRepository(){
+		return new HttpSessionOAuth2AuthorizationRequestRepository();
+	}
+	
+	@Bean
+	public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> getToken(){
+		return new DefaultAuthorizationCodeTokenResponseClient();
 	}
 	
 	//cơ chế mã hóa mật khẩu

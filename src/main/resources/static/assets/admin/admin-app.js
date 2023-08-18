@@ -13,5 +13,9 @@ app.config(function($routeProvider){
 	.when("/unauthorized", {
 		templateUrl : "/assets/admin/authority/unauthorized.html",
 		controller : "authority-ctrl"
+	})
+	.when("/bill", {
+		templateUrl : "/assets/admin/bill/index.html",
+		controller : "bill-ctrl"
 	});
 });

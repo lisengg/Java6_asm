@@ -1,0 +1,52 @@
+<div class="panel panel-default" xmlns:th="http://www.thymeleaf.org">
+	<div class="panel-heading">BILLDETAIL LIST</div>
+	<table class="table table-condensed">
+		<thead class="bg-success" style="font-variant: small-caps;">
+			<tr>
+				<th>Id</th>
+				<th>OrderId</th>
+				<th>UserName</th>
+				<th>Image</th>
+				<th>Product's name</th>
+				<th>Purchase date</th>
+				<th>Total value</th>
+				<th>Quantity</th>
+				<th>Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="orderdetail in orderdetails" >
+				<td>{{orderdetail.id}}</td>
+				<td>{{orderdetail.order.id}}</td>
+				<td>{{orderdetail.order.account.username}}</td>
+				<!-- <td> <img alt="" ng-src="{{'/assets/images/' + orderdetail.order.image}}"></td> -->
+				<td>{{orderdetail.product.name}}</td>
+				<td>{{orderdetail.order.createDate | date : 'dd-MM-yyyy'}}</td>
+				<td>${{orderdetail.price*orderdetail.quantity | number : 2}}</td>
+				<td>{{orderdetail.quantity}}</td>
+				<td>{{orderdetail.order.address}}</td>
+				<td>
+					<div class="btn-group btn-group-xs">
+						<button ng-click="edit(orderdetail)" class="btn btn-warning glyphicon glyphicon-edit"></button>
+						<button ng-click="delete(orderdetail)" class="btn btn-danger glyphicon glyphicon-trash"></button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+		<div class="panel-footer text-center">
+		<button ng-click="pager.first()" class="btn btn-danger">
+        	<b class="glyphicon glyphicon-hand-up"></b>
+        </button>
+        <button ng-click="pager.prev()" class="btn btn-primary">
+        	<b class="glyphicon glyphicon-hand-left"></b>
+        </button>
+        <button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+        <button ng-click="pager.next()" class="btn btn-primary">
+        	<b class="glyphicon glyphicon-hand-right"></b>
+        </button>
+        <button ng-click="pager.last()" class="btn btn-danger">
+        	<b class="glyphicon glyphicon-hand-down"></b>	
+        </button>
+	</div>
+</div>

@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-	<div class="panel-heading">PRODUCT EDITION</div>
+	<div class="panel-heading">Chỉnh sửa sản phẩm</div>
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-sm-4 text-center">
@@ -10,22 +10,22 @@
 			<div class="col-sm-8">
 				<div class="row">
 					<div class="form-group col-sm-6">
-						<div>Name</div>
+						<div>Tên sản phẩm</div>
 						<input ng-model="form.name" class="form-control">
 					</div>
 					<div class="form-group col-sm-6">
-						<div>Price</div>
+						<div>Giá</div>
 						<input ng-model="form.price" class="form-control">
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-sm-6">
-						<div>Image</div>
+						<div>Hình ảnh</div>
 						<input type="file" class="form-control" id="image"
 							onchange="angular.element(this).scope().imageChanged(this.files)">
 					</div>
 					<div class="form-group col-sm-6">
-						<div>Category</div>
+						<div>Loại sản phẩm</div>
 						<select ng-model="form.category.id" class="form-control">
 							<option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
 						</select>
@@ -33,17 +33,17 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-sm-6">
-						<div>Creat Date</div>
+						<div>Ngày tạo</div>
 						<input ng-model="form.createDate" type="date" class="form-control">
 					</div>
 					<div class="form-group col-sm-6">
-						<div>Available</div>
+						<div>Trạng thái</div>
 						<div class="form-control">
 							<label class="radio-inline">
-								<input ng-model="form.available" ng-value="true" name="available" type="radio">Yes
+								<input ng-model="form.available" ng-value="true" name="available" type="radio">Còn hàng
 							</label>
 							<label class="radio-inline">
-								<input ng-model="form.available" ng-value="false" name="available" type="radio">No
+								<input ng-model="form.available" ng-value="false" name="available" type="radio">Hết hàng
 							</label>
 						</div>
 					</div>
@@ -53,16 +53,16 @@
 	</div>
 	<div class="panel-footer text-center">
         <button ng-click="create()" class="btn btn-primary">
-        	<b class="glyphicon glyphicon-plus"></b> Create
+        	<b class="glyphicon glyphicon-plus"></b> Tạo
         </button>
         <button ng-click="update()" class="btn btn-success">
-        	<b class="glyphicon glyphicon-save"></b> Update
+        	<b class="glyphicon glyphicon-pencil"></b> Chỉnh sửa
         </button>
         <button ng-click="delete(form)" class="btn btn-danger">
-        	<b class="glyphicon glyphicon-trash"></b> Delete
+        	<b class="glyphicon glyphicon-trash"></b> Xóa
         </button>
         <button ng-click="reset()" class="btn btn-info">
-        	<b class="glyphicon glyphicon-refresh"></b> Reset
+        	<b class="glyphicon glyphicon-refresh"></b> Xóa form
         </button>
 	
     </div>

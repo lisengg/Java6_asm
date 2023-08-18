@@ -12,10 +12,11 @@
         		<div class="panel-body">
         			<a th:href="@{|/product/detail/${p.id}|}">
         				<img th:src="@{|/assets/images/${p.image}|}">
+        				
         			</a>
         		</div>
         		<div class="panel-footer text-right">
-        			<b class="pull-left">$[[${p.price}]]</b>
+        			<b class="pull-left">[[${p.price}]]VND</b>
         			<button th:attr="ng-click=@{|cart.add(${p.id})|}" class="btn btn-primary">
         				Mua hàng
         			</button>

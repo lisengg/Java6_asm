@@ -3,13 +3,13 @@
 	<table class="table table-condensed">
 		<thead class="bg-success" style="font-variant: small-caps;">
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Date</th>
-				<th>Image</th>
-				<th>Category</th>
-				<th>Available?</th>
+				<th>Id sản phẩm</th>
+				<th>Tên sản phẩm</th>
+				<th>Giá</th>
+				<th>Ngày tạo</th>
+				<th>Hình ảnh</th>
+				<th>Loại</th>
+				<th>Trạng thái</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -21,7 +21,7 @@
 				<td>{{item.createDate | date : 'dd-MM-yyyy'}}</td>
 				<td>{{item.image}}</td>
 				<td>{{item.category.name}}</td>
-				<td>{{item.available?'Yes':'No'}}</td>
+				<td>{{item.available?'Còn hàng':'Hết hàng'}}</td>
 				<td>
 					<div class="btn-group btn-group-xs">
 						<button ng-click="edit(item)" class="btn btn-warning glyphicon glyphicon-edit"></button>
